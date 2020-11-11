@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="DreamSites_Property::property" title="Property" module="DreamSites_Property" sortOrder="45" resource="DreamSites_Property::property" parent="Magento_Backend::stores"/>
+        <add id="DreamSites_Property::propertylist" title="Properties History" module="DreamSites_Property" sortOrder="10" parent="DreamSites_Property::property" action="propertyral/propertylist" resource="DreamSites_Property::propertylist"/>
+        <add id="DreamSites_Property::configuration" title="Configuration" module="DreamSites_Property" sortOrder="100" action="adminhtml/system_config/edit/section/propertyadmin" resource="DreamSites_Property::configuration" parent="DreamSites_Property::property"/>
+    </menu>
+</config>

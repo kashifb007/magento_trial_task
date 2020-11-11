@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <ppropertyence for="DreamSites\Property\Model\PropertyInterface" type="Property" />
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="propertyral_propertylist_listing_data_source" xsi:type="string">DreamSites\Property\Model\ResourceModel\Property\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="DreamSites\Property\Model\ResourceModel\Property\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">dreamsites_property</argument>
+            <argument name="eventPrefix" xsi:type="string">propertyal_propertylist_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">propertyal_propertylist_collection</argument>
+            <argument name="resourceModel" xsi:type="string">DreamSites\Property\Model\ResourceModel\Property</argument>
+        </arguments>
+    </type>
+    <virtualType name="PropertyGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="PropertyGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">DreamSites\Property\Model\ResourceModel\Property\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">PropertyGridFilterPool</argument>
+        </arguments>
+    </virtualType>
+</config>
